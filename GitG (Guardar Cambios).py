@@ -57,8 +57,8 @@ else:
     # Pedir contraseña al usuario
     password = input(('Contraseña: '))
     # Guardar informacion en archivo .gitconfig
-    os.system('git config --global user.name "' + username + '"')
     os.system('git config --global user.email ' + email)
+    os.system('git config --global user.name "' + username + '"')
     os.system('git config --global user.password "' + password + '"')
     print('\nInicio exitoso!')
     os.system(pause)
