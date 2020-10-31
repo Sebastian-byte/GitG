@@ -21,7 +21,7 @@ os.system('git branch -M main')
 # Esta linea debe modificarse -> Colocar la ruta de nuestro repositorio
 os.system('git remote add origin https://github.com/' + user + '/' + repo + '/')
 
-os.system('git push -u origin main')
+os.system('git push -u -f origin main')
 
 print('quiza completado')
 os.system('pause')
