@@ -1,32 +1,20 @@
 import os
 
-print('Git Graphical (GitG)')
+print('Git Graphical (GitG) (Guardar Cambios)')
 
 print('\nTip: Si ya estas en el directorio pon "."')
 
 # Pedirle el directorio al usuario
 dirName = input(('Directorio del repositorio: '))
 
-# Nombre del commit inicial
+# Nombre del commit
 commitName = input(('\nNombre del commit: '))
 
-# Nombre del usuario, para agregar a la URL
-user = input(('\nNombre de usuario: '))
-
-# Nombre del repositorio a hacer commit
-repo = input(('\nNombre del repositorio: '))
-
 os.chdir(dirName)
-
-os.system('git init')
 
 os.system('git add .')
 
 os.system('git commit -m "' + commitName + '"')
-
-os.system('git branch -M main')
-
-os.system('git remote add origin https://github.com/' + user + '/' + repo + '/')
 
 os.system('git push -u -f origin main')
 
