@@ -1,4 +1,17 @@
 import os
+import platform
+
+system = platform.system()
+
+if system == 'Windows':
+    pause = 'pause'
+elif system == 'Linux':
+    pause = "read -rsp $'Presione una tecla para continuar...\n' -n 1 key"
+elif system == 'Darwin':
+    pause = "read -rsp $'Presione una tecla para continuar...\n' -n 1 key"
+else:
+    print('Sistema no compatible!')
+    quit()
 
 print('Git Graphical (GitG) (Guardar Cambios)')
 
@@ -19,4 +32,4 @@ os.system('git commit -m "' + commitName + '"')
 os.system('git push -u -f origin main')
 
 print('\nTodo Listo!')
-os.system('pause')
+os.system(pause)
