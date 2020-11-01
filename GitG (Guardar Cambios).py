@@ -7,9 +7,7 @@ home = str(Path.home())
 
 if system == 'Windows':
     pause = 'pause'
-elif system == 'Linux':
-    pause = "read -rsp $'Presione una tecla para continuar...\n' -n 1 key"
-elif system == 'Darwin':
+elif system == 'Linux' or system == 'Darwin':
     pause = "read -rsp $'Presione una tecla para continuar...\n' -n 1 key"
 else:
     print('Sistema no compatible!')

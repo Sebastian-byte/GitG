@@ -1,15 +1,13 @@
 ﻿import os
 import platform
-from pathlib import Path 
+from pathlib import Path
 
 system = platform.system()
 home = str(Path.home())
 
 if system == 'Windows':
     pause = 'pause'
-elif system == 'Linux':
-    pause = "read -rsp $'Presione una tecla para continuar...\n' -n 1 key"
-elif system == 'Darwin':
+elif system == 'Linux' or system == 'Darwin':
     pause = "read -rsp $'Presione una tecla para continuar...\n' -n 1 key"
 else:
     print('Sistema no compatible!')
@@ -36,7 +34,7 @@ def Main():
     # Nombre del usuario, para agregar a la URL
     user = input(('\nNombre de usuario: '))
 
-    # Nombre del repositorio a hacer commit
+    # Nombre del repositorio, para agregar a la URL
     repo = input(('\nNombre del repositorio: '))
 
     os.chdir(dirName)
