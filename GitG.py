@@ -37,7 +37,14 @@ def Main():
     # Nombre del repositorio, para agregar a la URL
     repo = input(('\nNombre del repositorio: '))
 
-    os.chdir(dirName)
+    # Revisar si existe el directorio
+    if os.path.exists(dirName): 
+        os.chdir(dirName)
+    # Si no existe, informarle al usuario y llevarlo al inicio
+    else:
+        print('Ese directorio no existe!, intentalo de nuevo.')
+        os.system(pause)
+        Main()
 
     os.system('git init')
 

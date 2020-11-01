@@ -30,7 +30,14 @@ def Main():
     # Nombre del commit
     commitName = input(('\nNombre del commit: '))
 
-    os.chdir(dirName)
+    # Revisar si existe el directorio
+    if os.path.exists(dirName): 
+        os.chdir(dirName)
+    # Si no existe, informarle al usuario y llevarlo al inicio
+    else:
+        print('Ese directorio no existe!, intentalo de nuevo.')
+        os.system(pause)
+        Main()
 
     os.system('git add .')
 
