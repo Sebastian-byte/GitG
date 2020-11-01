@@ -35,9 +35,10 @@ def Main():
         os.chdir(dirName)
     # Si no existe, informarle al usuario y llevarlo al inicio
     else:
-        print('Ese directorio no existe!, intentalo de nuevo.')
+        print('\nEse directorio no existe!, intentalo de nuevo.')
         os.system(pause)
-        Main()
+        clear() # Limpiar
+        Main() # Llevar a la funcion principal
 
     os.system('git add .')
 
