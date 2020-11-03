@@ -33,7 +33,7 @@ def Main():
     os.system('git push -u -f origin main')
 
     print('\nTodo Listo!')
-    os.system(pause)
+    pause()
 
 # Revisar si el usuario ya inicio sesión.
 if os.path.exists(home + '/.gitconfig'):
