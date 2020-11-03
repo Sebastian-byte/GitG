@@ -1,6 +1,7 @@
 ﻿import os
 import platform
 from pathlib import Path
+from lib.osclear import *
 
 system = platform.system()
 home = str(Path.home())
@@ -12,12 +13,6 @@ elif system == 'Linux' or system == 'Darwin':
 else:
     print('Sistema no compatible!')
     quit()
-
-def clear():
-    if os.name == "nt":
-        os.system("cls")
-    else:
-        os.system("clear")
 
 # Funcion principal
 def Main():
