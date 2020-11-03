@@ -1,18 +1,9 @@
 ﻿import os
-import platform
 from pathlib import Path
 from lib.osclear import clear
+from lib.ospause import pause
 
-system = platform.system()
 home = str(Path.home())
-
-if system == 'Windows':
-    pause = 'pause'
-elif system == 'Linux' or system == 'Darwin':
-    pause = "read -rsp $'Presione una tecla para continuar...\n' -n 1 key"
-else:
-    print('Sistema no compatible!')
-    quit()
 
 # Funcion principal
 def Main():
@@ -63,19 +54,25 @@ if os.path.exists(home + '/.gitconfig'):
 # Si no lo ha hecho, Pedirle que lo haga.
 else:
     print('Git Graphical (GitG)')
+    
     print('\nTienes que iniciar sesion en Github!')
+    
     # Pedir nombre al usuario
     username = input(('\nNombre de usuario: '))
+    
     # Pedir correo al usuario
     email = input(('Correo: '))
+    
     # Pedir contraseña al usuario
     password = input(('Contraseña: '))
+    
     # Guardar informacion en archivo .gitconfig
     os.system('git config --global user.email ' + email)
     os.system('git config --global user.name "' + username + '"')
     os.system('git config --global user.password "' + password + '"')
+    
     print('\nInicio exitoso!')
-    os.system(pause)
+    
+    pause() # Pausar la consola
     clear() # Limpiar la consola
     Main() # Llamar a la funcion principal
-    
