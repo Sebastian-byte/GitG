@@ -4,4 +4,3 @@ def pause():
         os.system('pause')
     else:
         os.system("read -rsp $'Presione una tecla para continuar...\n' -n 1 key")
-

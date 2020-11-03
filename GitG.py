@@ -29,9 +29,9 @@ def Main():
     # Si no existe, informarle al usuario y llevarlo al inicio
     else:
         print('\nEse directorio no existe!, intentalo de nuevo.')
-        os.system(pause)
+        pause() # Pausar
         clear() # Limpiar
-        Main() # Llevar a la funcion principal
+        Main() # Llamar a la funcion principal
 
     os.system('git init')
 
