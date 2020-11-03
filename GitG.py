@@ -48,6 +48,7 @@ def Main():
 
     print('\nTodo Listo!')
     pause()
+    quit()
 
 # Revisar si el usuario ya inicio sesión.
 if os.path.exists(home + '/.gitconfig'):
