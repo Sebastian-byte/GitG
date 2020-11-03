@@ -1,9 +1,9 @@
 import os
 from src.ospause import pause
 from src.osclear import clear
-os.chdir('..')
 
 def requestLogin(come):
+    os.chdir('..')
     from GitG import Main
     from GitGSave import MainSave
 
