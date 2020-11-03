@@ -1,7 +1,7 @@
 import os
 import platform
 from pathlib import Path
-from lib.osclear import *
+from lib.osclear import clear
 
 system = platform.system()
 home = str(Path.home())
