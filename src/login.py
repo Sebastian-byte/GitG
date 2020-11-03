@@ -3,7 +3,6 @@ from src.ospause import pause
 from src.osclear import clear
 
 def requestLogin(come):
-    os.chdir('..')
     from GitG import Main
     from GitGSave import MainSave
 
