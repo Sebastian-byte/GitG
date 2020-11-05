@@ -51,6 +51,7 @@ def Main():
     pause()
     sys.exit(0)
 
+
 # Revisar si el usuario ya inicio sesión.
 if os.path.exists(home + '/.gitconfig'):
     Main()
