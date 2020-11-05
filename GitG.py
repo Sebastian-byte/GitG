@@ -5,7 +5,7 @@ from src.osclear import clear
 from src.ospause import pause
 from src.login import requestLogin
 
-Home = str(Path.home())
+home = str(Path.home())
 
 # Funcion principal
 def Main():
@@ -14,10 +14,10 @@ def Main():
     print('\nTip: Si ya estas en el directorio pon "."')
 
     # Pedirle el directorio al usuario
-    Dir_Name = input(('Directorio del repositorio: '))
+    dir_name = input(('Directorio del repositorio: '))
 
     # Nombre del commit inicial
-    Commit_Name = input(('\nNombre del commit: '))
+    commit_name = input(('\nNombre del commit: '))
 
     # Nombre del usuario, para agregar a la URL
     user = input(('\nNombre de usuario: '))
@@ -26,8 +26,8 @@ def Main():
     repo = input(('\nNombre del repositorio: '))
 
     # Revisar si existe el directorio
-    if os.path.exists(Dir_Name): 
-        os.chdir(Dir_Name)
+    if os.path.exists(dir_name): 
+        os.chdir(dir_name)
     # Si no existe, informarle al usuario y llevarlo al inicio
     else:
         print('\nEse directorio no existe!, intentalo de nuevo.')
@@ -39,7 +39,7 @@ def Main():
 
     os.system('git add .')
 
-    os.system('git commit -m "' + Commit_Name + '"')
+    os.system('git commit -m "' + commit_name + '"')
 
     os.system('git branch -M main')
 
@@ -53,7 +53,7 @@ def Main():
 
 
 # Revisar si el usuario ya inicio sesión.
-if os.path.exists(Home + '/.gitconfig'):
+if os.path.exists(home + '/.gitconfig'):
     Main()
 # Si no lo ha hecho, Pedirle que lo haga.
 else:
