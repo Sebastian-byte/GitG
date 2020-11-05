@@ -2,9 +2,9 @@ import os
 from src.ospause import pause
 from src.osclear import clear
 
-def requestLogin(come):
-    from GitG import Main
-    from GitGSave import MainSave
+def request_login(come):
+    from GitG import main
+    from GitGSave import main_save
 
     if come == 1:
         print('Git Graphical (GitG)')
@@ -29,7 +29,7 @@ def requestLogin(come):
 
         pause() # Pausar la consola
         clear() # Limpiar la consola
-        Main() # Llamar a la funcion principal
+        nain() # Llamar a la funcion principal
     elif come == 2:
         print('Git Graphical (GitG)')
 
@@ -53,4 +53,4 @@ def requestLogin(come):
 
         pause() # Pausar la consola
         clear() # Limpiar la consola
-        MainSave() # Llamar a la funcion principal
+        main_save() # Llamar a la funcion principal

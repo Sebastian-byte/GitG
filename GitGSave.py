@@ -3,11 +3,11 @@ import sys
 from pathlib import Path
 from src.osclear import clear
 from src.ospause import pause
-from src.login import requestLogin
+from src.login import request_login
 
 home = str(Path.home())
 
-def MainSave():
+def main_save():
     print('Git Graphical (GitG) (Guardar Cambios)')
 
     print('\nTip: Si ya estas en el directorio pon "."')
@@ -19,14 +19,14 @@ def MainSave():
     commit_name = input(('\nNombre del commit: '))
 
     # Revisar si existe el directorio
-    if os.path.exists(dir_name): 
+    if os.path.exists(dir_name):
         os.chdir(dir_name)
     # Si no existe, informarle al usuario y llevarlo al inicio
     else:
         print('\nEse directorio no existe!, intentalo de nuevo.')
         pause() # Pausar
         clear() # Limpiar
-        MainSave() # Llamar a la funcion principal
+        main_save() # Llamar a la funcion principal
 
     os.system('git add .')
 
@@ -41,7 +41,7 @@ def MainSave():
 
 # Revisar si el usuario ya inicio sesión.
 if os.path.exists(home + '/.gitconfig'):
-    MainSave()
+    main_save()
 # Si no lo ha hecho, Pedirle que lo haga.
 else:
-    requestLogin(2)
+    request_login(2)
