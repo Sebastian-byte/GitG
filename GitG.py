@@ -10,7 +10,7 @@ home = str(Path.home())
 # Funcion principal
 def Main():
     print('Git Graphical (GitG)')
-    
+
     print('\nTip: Si ya estas en el directorio pon "."')
 
     # Pedirle el directorio al usuario
