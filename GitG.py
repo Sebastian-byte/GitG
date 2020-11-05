@@ -1,4 +1,5 @@
 ﻿import os
+import sys
 from pathlib import Path
 from src.osclear import clear
 from src.ospause import pause
@@ -48,7 +49,7 @@ def Main():
 
     print('\nTodo Listo!')
     pause()
-    quit()
+    sys.exit(0)
 
 # Revisar si el usuario ya inicio sesión.
 if os.path.exists(home + '/.gitconfig'):

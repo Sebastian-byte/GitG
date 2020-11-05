@@ -1,6 +1,6 @@
-import os
+"""Module to pause the Shell"""
+
 def pause():
-    if os.name == 'nt':
-        os.system('pause')
-    else:
-        os.system("read -rsp $'Presione una tecla para continuar...\n' -n 1 key")
+    """Function to pause using a input variable."""
+    program_pause = input(('Presione una tecla para continuar...\n'))
+    del program_pause
