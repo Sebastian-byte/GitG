@@ -13,6 +13,6 @@ before_install:
   - mkdir skift
 install:
   - pip install -U pytest
-script: pytest # run tests
+script: pytest GitG.py GitGSave.py
 after_success:
   - codecov # submit coverage
