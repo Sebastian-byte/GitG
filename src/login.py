@@ -1,8 +1,11 @@
+"""Module to request login for Git"""
+
 import os
 from src.ospause import pause
 from src.osclear import clear
 
 def request_login(come):
+    """Request login and go to the main functions."""
     from GitG import main
     from GitGSave import main_save
 

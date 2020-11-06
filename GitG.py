@@ -1,14 +1,17 @@
-﻿import os
+﻿"""Create Git repo, and publish to Github"""
+
+import os
 import sys
 from pathlib import Path
 from src.osclear import clear
 from src.ospause import pause
 from src.login import request_login
 
-home = str(Path.home())
+HOME = str(Path.home())
 
 # Funcion principal
 def main():
+    """Main function to do the before mentionated."""
     print('Git Graphical (GitG)')
 
     print('\nTip: Si ya estas en el directorio pon "."')
@@ -53,7 +56,7 @@ def main():
 
 
 # Revisar si el usuario ya inicio sesión.
-if os.path.exists(home + '/.gitconfig'):
+if os.path.exists(HOME + '/.gitconfig'):
     main()
 # Si no lo ha hecho, Pedirle que lo haga.
 else:
