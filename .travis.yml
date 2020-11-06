@@ -9,6 +9,8 @@ before_install:
   - pip install -U pip
   - pip install -U pytest
   - pip install codecov
+  - mkdir tests
+  - mkdir skift
 install:
   - pip install -U pytest
 script: pytest # run tests
