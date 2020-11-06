@@ -29,7 +29,7 @@ def request_login(come):
 
         pause() # Pausar la consola
         clear() # Limpiar la consola
-        nain() # Llamar a la funcion principal
+        main() # Llamar a la funcion principal
     elif come == 2:
         print('Git Graphical (GitG)')
 
