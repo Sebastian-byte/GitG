@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Sebastian-byte/GitG.svg?branch=main)](https://travis-ci.com/Sebastian-byte/GitG)
+<br />
 ﻿# GitG
 Git Graphical (GitG) es una utilidad escrita en Python para facilitar el uso de Git.
 
