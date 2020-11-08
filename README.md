@@ -1,5 +1,10 @@
 ﻿# GitG
-[![Build Status](https://travis-ci.com/Sebastian-byte/GitG.svg?branch=main)](https://travis-ci.com/Sebastian-byte/GitG)[![CircleCI](https://circleci.com/gh/Sebastian-byte/GitG.svg?style=shield)](https://app.circleci.com/pipelines/github/Sebastian-byte/GitG)  
+<p align="center">
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/sebastian-byte/gitg.svg">
+<img alt="GitHub" src="https://img.shields.io/github/license/sebastian-byte/gitg.svg">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/sebastian-byte/gitg.svg">
+<img alt="Build Status" src="https://travis-ci.com/Sebastian-byte/GitG.svg">
+
 Git Graphical (GitG) es una utilidad escrita en Python para facilitar el uso de Git.
 
 No te ha pasado, que quieres guardar tu codigo en Github, pero es muy complicado usar Git?  
