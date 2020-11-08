@@ -2,5 +2,5 @@
 
 def pause():
     """Function to pause using a input variable."""
-    program_pause = input(('Presione una tecla para continuar...\n'))
+    program_pause = input(('Presione una tecla para continuar...'))
     del program_pause
