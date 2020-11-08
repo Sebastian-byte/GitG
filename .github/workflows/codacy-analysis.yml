@@ -5,13 +5,13 @@
 # https://github.com/codacy/codacy-analysis-cli-action.
 # For more information on Codacy Analysis CLI in general, see
 # https://github.com/codacy/codacy-analysis-cli.
-
-name: Codacy Security Scan
-
+---
 engines:
   pylint:
     enabled: true
-    python_version: 3
+    python_version: 2
+
+name: Codacy Security Scan
 
 on:
   workflow_dispatch:
