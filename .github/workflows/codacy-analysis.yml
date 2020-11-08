@@ -8,6 +8,11 @@
 
 name: Codacy Security Scan
 
+engines:
+  pylint:
+    enabled: true
+    python_version: 3
+
 on:
   workflow_dispatch:
   push:
