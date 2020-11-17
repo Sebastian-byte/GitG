@@ -1,3 +1,5 @@
 wheel
 codecov
+nose
 python-dotenv
+py3-validate-email

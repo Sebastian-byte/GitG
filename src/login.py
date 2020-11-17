@@ -31,6 +31,8 @@ def request_login(come):
             pass
         else:
             print(color.red('Email Invalido!, Porfavor vuelve a intentarlo.'))
+            pause()
+            clear()
             request_login(come)
 
         # Pedir contraseña al usuario
