@@ -33,9 +33,13 @@ def main_save():
 
     os.system('git add .')
 
-    os.system('git commit -m "' + commit_name + '"')
+    os.system(f'git commit -m "{commit_name}"')
 
-    os.system('git push -f origin main')
+    try:
+        os.system('git push origin main')
+    except:
+        os.system('git pull')
+        os.system('git push origin main')
 
     print('\nTodo Listo!')
     pause()

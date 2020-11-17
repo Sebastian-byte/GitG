@@ -3,6 +3,7 @@
 import os
 import sys
 from pathlib import Path
+from dotenv import load_dotenv
 from src.osclear import clear
 from src.ospause import pause
 from src.login import request_login
@@ -23,7 +24,10 @@ def main():
     commit_name = input(('\nNombre del commit: '))
 
     # Nombre del usuario, para agregar a la URL
-    user = input(('\nNombre de usuario: '))
+    if not os.path.exists("./.env"):
+        user = input(("\nNombre de usuario: "))
+        with open("./.env", "w") as data:
+            data.write(f"USERNAME={user}")
 
     # Nombre del repositorio, para agregar a la URL
     repo = input(('\nNombre del repositorio: '))
@@ -42,11 +46,15 @@ def main():
 
     os.system('git add .')
 
-    os.system('git commit -m "' + commit_name + '"')
+    os.system(f'git commit -m "{commit_name}"')
 
     os.system('git branch -M main')
 
-    os.system('git remote add origin https://github.com/' + user + '/' + repo + '/')
+    if not os.path.exists("./.env"):
+        os.system(f"git remote add origin https://github.com/{user}/{repo}.git")
+    else:
+        username = os.getenv("USERNAME")
+        os.system(f"git remote add origin https://github.com/{username}/{repo}.git")
 
     try:
         os.system('git push -u origin main')
