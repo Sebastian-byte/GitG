@@ -48,7 +48,11 @@ def main():
 
     os.system('git remote add origin https://github.com/' + user + '/' + repo + '/')
 
-    os.system('git push -u -f origin main')
+    try:
+        os.system('git push -u origin main')
+    except:
+        os.system('git pull')
+        os.system('git push -u origin main')
 
     print('\nTodo Listo!')
     pause()
