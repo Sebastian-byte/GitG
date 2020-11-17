@@ -2,13 +2,16 @@
 
 import os
 import sys
+import urllib.request
 from pathlib import Path
 from dotenv import load_dotenv
 from src.osclear import clear
 from src.ospause import pause
+from src.console_tools import ColorText
 from src.login import request_login
 
 HOME = str(Path.home())
+color = ColorText()
 
 # Funcion principal
 def main():
@@ -37,10 +40,27 @@ def main():
         os.chdir(dir_name)
     # Si no existe, informarle al usuario y llevarlo al inicio
     else:
-        print('\nEse directorio no existe!, intentalo de nuevo.')
+        print(color.red('\nEse directorio no existe!, intentalo de nuevo.'))
         pause() # Pausar
         clear() # Limpiar
         main() # Llamar a la funcion principal
+
+    if not sys.platform.startswith("win32"):
+        if not os.path.exists("./.env"):
+            checkurl = urllib.request.urlopen(f"https://github.com/{user}/{repo}.git").getcode()
+        else:
+            username = os.getenv("USERNAME")
+            checkurl = urllib.request.urlopen(f"https://github.com/{username}/{repo}.git").getcode()
+
+        if checkurl == 200 or 202:
+            pass
+        else:
+            print(color.red("Ese repositorio no existe!, intentalo de nuevo."))
+            pause()
+            clear()
+            main()
+    else:
+        pass
 
     os.system('git init')
 
@@ -49,6 +69,7 @@ def main():
     os.system(f'git commit -m "{commit_name}"')
 
     os.system('git branch -M main')
+
 
     if not os.path.exists("./.env"):
         os.system(f"git remote add origin https://github.com/{user}/{repo}.git")

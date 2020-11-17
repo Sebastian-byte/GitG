@@ -3,11 +3,13 @@
 import os
 import sys
 from pathlib import Path
+from src.console_tools import ColorText
 from src.osclear import clear
 from src.ospause import pause
 from src.login import request_login
 
 HOME = str(Path.home())
+color = ColorText()
 
 def main_save():
     """Main function to do the before mentionated."""
@@ -16,17 +18,17 @@ def main_save():
     print('\nTip: Si ya estas en el directorio pon "."')
 
     # Pedirle el directorio al usuario
-    dir_name = input(('Directorio del repositorio: '))
+    dir_name = input('Directorio del repositorio: ')
 
     # Nombre del commit
-    commit_name = input(('\nNombre del commit: '))
+    commit_name = input('\nNombre del commit: ')
 
     # Revisar si existe el directorio
     if os.path.exists(dir_name):
         os.chdir(dir_name)
     # Si no existe, informarle al usuario y llevarlo al inicio
     else:
-        print('\nEse directorio no existe!, intentalo de nuevo.')
+        print(color.red('\nEse directorio no existe!, intentalo de nuevo.'))
         pause() # Pausar
         clear() # Limpiar
         main_save() # Llamar a la funcion principal
