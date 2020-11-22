@@ -72,7 +72,7 @@ def main():
 
 
     if not os.path.exists("./.env"):
-        os.system(f"git remote add origin https://github.com/{user}/{repo}.git")
+        os.system(f"git remote add -t origin https://github.com/{user}/{repo}.git")
     else:
         username = os.getenv("USERNAME")
         os.system(f"git remote add origin https://github.com/{username}/{repo}.git")
