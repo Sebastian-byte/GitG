@@ -2,7 +2,10 @@
 
 import os
 import sys
+import subprocess
+import time
 from pathlib import Path
+from progressbar import progressbar
 from src.console_tools import ColorText
 from src.osclear import clear
 from src.ospause import pause
@@ -42,15 +45,28 @@ def main_save():
         clear() # Limpiar
         main_save() # Llamar a la funcion principal
 
-    os.system('git add .')
+    toolbar_width = 30
 
-    os.system(f'git commit -m "{commit_name}"')
+    sys.stdout.write("[%s]" % (" " * toolbar_width))
+    sys.stdout.flush()
+    sys.stdout.write("\b" * (toolbar_width+1))
 
-    try:
-        os.system('git push origin main')
-    except:
-        os.system('git pull')
-        os.system('git push origin main')
+    a = 1
+    with open(os.devnull, 'wb') as devnull:
+        for i in progressbar(range(100)):
+            if a == 1:
+                subprocess.call(['git', 'add .'], stdout=devnull, stderr=subprocess.STDOUT)
+                subprocess.call(['git', 'git commit -m "' + commit_name + '"'], stdout=devnull, stderr=subprocess.STDOUT)
+
+                try:
+                    subprocess.call(['git', 'push'], stdout=devnull, stderr=subprocess.STDOUT)
+                except OSError:
+                    subprocess.call(['git', 'pull'], stdout=devnull, stderr=subprocess.STDOUT)
+                    subprocess.call(['git', 'push'], stdout=devnull, stderr=subprocess.STDOUT)
+
+        if a >= 2:
+            time.sleep(0.5)
+        a = a + 1
 
     print('\nTodo Listo!')
     pause()
