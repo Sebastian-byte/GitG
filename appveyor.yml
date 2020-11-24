@@ -50,7 +50,7 @@ test_script:
 
 artifacts:
 - path: ./build/GitG/dist
-  - ps: |
+  ps: |
     if ($CI_Linux) {
       name: GitG-Linux-$platform
     } else {
@@ -58,7 +58,7 @@ artifacts:
     }
 
 - path: ./build/GitGSave/dist
-  - ps: |
+  ps: |
     if ($CI_LINUX) {
       name: GitG-Linux-$platform
     } else {
