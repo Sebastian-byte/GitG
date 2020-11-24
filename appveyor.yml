@@ -50,18 +50,8 @@ test_script:
 
 artifacts:
 - path: ./build/GitG/dist
-  ps: |
-    if ($CI_Linux) {
-      name: GitG-Linux-$platform
-    } else {
-      name: GitG-Win-%platform%
-    }
+    name: GitG-$(image)-$(platform)
 
 - path: ./build/GitGSave/dist
-  ps: |
-    if ($CI_LINUX) {
-      name: GitG-Linux-$platform
-    } else {
-      name: GitG-Win-%platform%
-    }
+    name: GitGSave-$(image)-$(platform)
 
