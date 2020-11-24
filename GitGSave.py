@@ -11,6 +11,15 @@ from src.login import request_login
 HOME = str(Path.home())
 color = ColorText()
 
+if len(sys.argv) >= 2:
+    arg = sys.argv[1]
+    if arg == '--version':
+        print(color.red('\nGitGSave'))
+        print('Version 0.930')
+        print('Thanks for testing!')
+else:
+    pass
+
 def main_save():
     """Main function to do the before mentionated."""
     print('Git Graphical (GitG) (Guardar Cambios)')
@@ -48,9 +57,12 @@ def main_save():
     sys.exit(0)
 
 
-# Revisar si el usuario ya inicio sesión.
-if os.path.exists(HOME + '/.gitconfig'):
-    main_save()
-# Si no lo ha hecho, Pedirle que lo haga.
+if len(sys.argv) >= 2:
+    pass
 else:
-    request_login(2)
+    # Revisar si el usuario ya inicio sesión.
+    if os.path.exists(HOME + '/.gitconfig'):
+        main_save()
+    # Si no lo ha hecho, Pedirle que lo haga.
+    else:
+        request_login(2)

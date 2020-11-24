@@ -20,7 +20,12 @@ script:
   - pyinstaller ../GitG.py
   - cd dist
   - cd GitG
-  - ls
   - ./GitG --version
+  - cd ..
+  - rm -rfv ./*
+  - pyinstaller ../GitGSave.py
+  - cd dist
+  - cd GitGSave
+  - ./GitGSave --version
 after_success:
   - codecov
