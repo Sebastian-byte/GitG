@@ -50,8 +50,8 @@ test_script:
 
 artifacts:
 - path: ./build/GitG/dist
-    name: GitG
+  name: GitG
 
 - path: ./build/GitGSave/dist
-    name: GitGSave
+  name: GitGSave
 
