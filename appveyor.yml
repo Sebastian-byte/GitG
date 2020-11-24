@@ -53,5 +53,5 @@ artifacts:
   name: GitG-$(image)-$(platform)
 
 - path: ./build/GitGSave/dist
-  name: GitGSave-$(image)-$(platform)
+  name: GitGSave-$(APPVEYOR_BUILD_WORKER_IMAGE)-$(platform)
 
