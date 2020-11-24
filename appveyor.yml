@@ -8,6 +8,8 @@ image:
   - Visual Studio 2019
   - Ubuntu
 
+stack: python 3.8
+
 environment:
   matrix:
     - PYTHON: "C:\\Python38"
@@ -20,20 +22,24 @@ environment:
       PYTHON_ARCH: "64"
       platform: "x64"
 
+    - PYTHON_VERSION: "3.8.6"
+      PYTHON_ARCH: "32"
+      platform: "x86"
+
 init:
-  - cmd: "ECHO Python-Path: %PYTHON% Python-Version: %PYTHON_VERSION% Python-Arch: x%PYTHON_ARCH%"
+  - cmd: "echo Python-Path: %PYTHON% Python-Version: %PYTHON_VERSION% Python-Arch: x%PYTHON_ARCH%"
 
 install:
-  - cmd: "%PYTHON%\\Scripts\\pip.exe install -r requirements.txt --no-warn-script-location"
-  - sh: "./$HOME/venv3.8.6/Scripts/pip install -r requirements.txt --no-warn-script-location"
+  - cmd: "pip install -r requirements.txt --no-warn-script-location"
+  - sh: "pip install -r requirements.txt --no-warn-script-location"
 
 build_script:
   - mkdir build
   - cd build
   - cmd: "%PYTHON%\\Scripts\\pyinstaller.exe --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py"
   - cmd: "%PYTHON%\\Scripts\\pyinstaller.exe --onefile --distpath ./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py"
-  - sh: "./$HOME/venv3.8.6/Scripts/pyinstaller --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py"
-  - sh: "$HOME/venv3.8.6/Scripts/pyinstaller --onefile --distpath ./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py"
+  - sh: "pyinstaller --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py"
+  - sh: "pyinstaller --onefile --distpath ./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py"
 
 test_script:
   - cd GitG/dist
