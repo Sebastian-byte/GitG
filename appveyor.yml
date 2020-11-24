@@ -12,12 +12,14 @@ stack: python 3.8
 
 environment:
   matrix:
-    - PYTHON: "C:\\Python38"
+    - ARCH: i686
+      PYTHON: "C:\\Python38"
       PYTHON_VERSION: "3.8.6"
       PYTHON_ARCH: "32"
       platform: "x86"
 
-    - PYTHON: "C:\\Python38-x64"
+    - ARCH: amd64
+      PYTHON: "C:\\Python38-x64"
       PYTHON_VERSION: "3.8.6"
       PYTHON_ARCH: "64"
       platform: "x64"
