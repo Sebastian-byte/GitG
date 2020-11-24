@@ -51,7 +51,7 @@ def main_save():
     else:
         nullvar = '&> /dev/null'
 
-    for i in progressbar(range(10)):
+    for i in progressbar(range(20)):
         if a == 1:
             os.system(f'git add -A {nullvar}')
             os.system(f'git commit -m "{commit_name}" {nullvar}')
@@ -63,7 +63,7 @@ def main_save():
                 os.system(f'git push {nullvar}')
 
         if a >= 2:
-            time.sleep(0.05)
+            time.sleep(0.1)
         a = a + 1
 
     del i
