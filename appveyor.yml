@@ -1,8 +1,5 @@
 version: '{build}'
 
-platform:
-  - x86
-  - x64
 build:
   parallel: true
   verbosity: minimal
@@ -12,13 +9,17 @@ environment:
     - PYTHON: "C:\\Python38"
       PYTHON_VERSION: "3.8.6"
       PYTHON_ARCH: "32"
+      platfrom: 
+        - x86
 
     - PYTHON: "C:\\Python38-x64"
       PYTHON_VERSION: "3.8.6"
       PYTHON_ARCH: "64"
+      platform:
+        - x64
 
 init:
-  - "ECHO Python: %PYTHON% Python Version: %PYTHON_VERSION% Python Arch: x%PYTHON_ARCH%"
+  - "ECHO Python-Path: %PYTHON% Python-Version: %PYTHON_VERSION% Python-Arch: x%PYTHON_ARCH%"
 
 install:
   - "%PYTHON%\\Scripts\\pip.exe install -r requirements.txt --no-warn-script-location"
