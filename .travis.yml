@@ -10,8 +10,8 @@ python:
   - "3.8"
   - "3.9"
 before_install:
-  - pip install pyinstaller
-  - pip install python-colortext
+  - python -m pip --version
+  - python -m pip install --upgrade pip
 install: "pip install -r requirements.txt"
 script:
   - mkdir build

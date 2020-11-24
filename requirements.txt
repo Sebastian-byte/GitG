@@ -1,5 +1,5 @@
-wheel
 codecov
-nose
+pyinstaller
+python-colortext
 python-dotenv
 py3-validate-email
