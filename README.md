@@ -4,6 +4,7 @@
 <img alt="GitHub" src="https://img.shields.io/github/license/sebastian-byte/gitg.svg">
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/sebastian-byte/gitg.svg">
 <img alt="Build Status" src="https://travis-ci.com/Sebastian-byte/GitG.svg">
+<img alt="Made with Python 3" src="https://img.shields.io/badge/Made%20with-Python%203-green.svg">
 
 Git Graphical (GitG) es una utilidad escrita en Python para facilitar el uso de Git.
 

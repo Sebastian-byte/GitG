@@ -13,6 +13,15 @@ from src.login import request_login
 HOME = str(Path.home())
 color = ColorText()
 
+if len(sys.argv) >= 2:
+    arg = sys.argv[1]
+    if arg == '--version':
+        print(color.blue('\nGitG (Seem to be used)'))
+        print('Version 0.925')
+        print('Thanks for testing')
+else:
+    pass
+
 # Funcion principal
 def main():
     """Main function to do the before mentionated."""
@@ -72,14 +81,14 @@ def main():
 
 
     if not os.path.exists("./.env"):
-        os.system(f"git remote add -t origin https://github.com/{user}/{repo}.git")
+        os.system(f'git remote add origin "https://github.com/{user}/{repo}.git"')
     else:
         username = os.getenv("USERNAME")
-        os.system(f"git remote add origin https://github.com/{username}/{repo}.git")
+        os.system(f'git remote add origin "https://github.com/{username}/{repo}.git"')
 
     try:
         os.system('git push -u origin main')
-    except:
+    except OSError:
         os.system('git pull')
         os.system('git push -u origin main')
 
@@ -88,9 +97,12 @@ def main():
     sys.exit(0)
 
 
-# Revisar si el usuario ya inicio sesión.
-if os.path.exists(HOME + '/.gitconfig'):
-    main()
-# Si no lo ha hecho, Pedirle que lo haga.
+if len(sys.argv) >= 2:
+    pass
 else:
-    request_login(1)
+    # Revisar si el usuario ya inicio sesión.
+    if os.path.exists(HOME + '/.gitconfig'):
+        main()
+    # Si no lo ha hecho, Pedirle que lo haga.
+    else:
+        request_login(1)

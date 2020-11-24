@@ -60,6 +60,7 @@ def request_login(come):
         # Pedir correo al usuario
         email = input(color.blue('Correo: '))
 
+        # Solo para asegurarse que no se haya equivocado o este mientiendo
         emailcheck = validate_email(email_address=email, check_regex=True, check_mx=True, use_blacklist=True)
         if emailcheck == True:
             pass
