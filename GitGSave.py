@@ -45,27 +45,25 @@ def main_save():
         clear() # Limpiar
         main_save() # Llamar a la funcion principal
 
-    toolbar_width = 30
-
-    sys.stdout.write("[%s]" % (" " * toolbar_width))
-    sys.stdout.flush()
-    sys.stdout.write("\b" * (toolbar_width+1))
-
     a = 1
-    with open(os.devnull, 'wb') as devnull:
-        for i in progressbar(range(100)):
-            if a == 1:
-                subprocess.call(['git', 'add .'], stdout=devnull, stderr=subprocess.STDOUT)
-                subprocess.call(['git', 'git commit -m "' + commit_name + '"'], stdout=devnull, stderr=subprocess.STDOUT)
+    if sys.platform.startswith('win32'):
+        nullvar = 'nul'
+    else:
+        nullvar = '/dev/null'
 
-                try:
-                    subprocess.call(['git', 'push'], stdout=devnull, stderr=subprocess.STDOUT)
-                except OSError:
-                    subprocess.call(['git', 'pull'], stdout=devnull, stderr=subprocess.STDOUT)
-                    subprocess.call(['git', 'push'], stdout=devnull, stderr=subprocess.STDOUT)
+    for i in progressbar(range(10)):
+        if a == 1:
+            os.system(f'git add -A > {nullvar}')
+            os.system(f'git commit -m "{commit_name}" > {nullvar}')
+
+            try:
+                os.system(f'git push > {nullvar}')
+            except OSError:
+                os.system(f'git pull > {nullvar}')
+                os.system(f'git push > {nullvar}')
 
         if a >= 2:
-            time.sleep(0.5)
+            time.sleep(0.0005)
         a = a + 1
 
     print('\nTodo Listo!')

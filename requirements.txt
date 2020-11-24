@@ -3,3 +3,4 @@ pyinstaller
 python-colortext
 python-dotenv
 py3-validate-email
+progressbar2
