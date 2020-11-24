@@ -63,9 +63,10 @@ def main_save():
                 os.system(f'git push {nullvar}')
 
         if a >= 2:
-            time.sleep(0.0005)
+            time.sleep(0.05)
         a = a + 1
 
+    del i
     print('\nTodo Listo!')
     pause()
     sys.exit(0)
