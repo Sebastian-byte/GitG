@@ -18,6 +18,9 @@ install:
 build_script:
   - mkdir build
   - cd build
-  - pyinstaller ../GitG.py
+  - "%PYTHON%/Scripts/pyinstaller.exe ../GitG.py"
+
+test_script:
   - cd dist/GitG
-  - GitG.exe --version
+  - dir
+  - "GitG.exe --version"
