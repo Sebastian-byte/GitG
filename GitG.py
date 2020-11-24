@@ -16,9 +16,9 @@ color = ColorText()
 if len(sys.argv) >= 2:
     arg = sys.argv[1]
     if arg == '--version':
-        print(color.blue('\nGitG (Seem to be used)'))
-        print('Version 0.925')
-        print('Thanks for testing')
+        print(color.red('\nGitG'))
+        print('Version 0.930')
+        print('Thanks for testing!')
 else:
     pass
 

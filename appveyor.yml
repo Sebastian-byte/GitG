@@ -31,11 +31,9 @@ build_script:
 test_script:
   - cd GitG/dist
   - "xcopy ..\\..\\..\\src\\* .\\src /e /i"
-  - dir
   - "GitG.exe --version"
   - cd ../../GitGSave/dist
   - "xcopy ..\\..\\..\\src\\* .\\src /e /i"
-  - dir
   - "GitGSave.exe --version"
   - cd ../../..
 
