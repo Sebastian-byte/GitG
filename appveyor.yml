@@ -11,7 +11,7 @@ environment:
       PYTHON_ARCH: "64"
 
 init:
-  - "ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
+  - "ECHO Python: %PYTHON% Python Version: %PYTHON_VERSION% Python Arch: x%PYTHON_ARCH%"
 
 install:
   - "%PYTHON%\\Scripts\\pip.exe install -r requirements.txt --no-warn-script-location"
@@ -20,7 +20,7 @@ build_script:
   - mkdir build
   - cd build
   - "%PYTHON%\\Scripts\\pyinstaller.exe --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py"
-  - "%PYTHON%\\Scripts\\pyinstaller.exe --onefile --distpath=./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py"
+  - "%PYTHON%\\Scripts\\pyinstaller.exe --onefile --distpath ./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py"
 
 test_script:
   - cd GitG/dist
