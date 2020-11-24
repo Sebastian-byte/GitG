@@ -24,10 +24,10 @@ build_script:
 
 test_script:
   - cd GitG/dist
-  - sh: cp ../../../src ./src
+  - "xcopy ..\\..\\..\\src .\\src /e /i"
   - "GitG.exe --version"
   - cd ../../GitGSave/dist
-  - sh: cp ../../../src ./src
+  - "xcopy ..\\..\\..\\src .\\src /e /i"
   - "GitGSave.exe --version"
   - cd ../../..
 
