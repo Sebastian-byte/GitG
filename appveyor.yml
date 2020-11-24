@@ -30,20 +30,18 @@ install:
   - cmd: "SET PATH=%PYTHON%\\Scripts;%path%"
   - sh: "export PATH=$PATH:/%PYTHON%"
   - sh: "export PATH=$PATH:/%PYTHON%/Scripts"
-  - cmd: "pip install -r requirements.txt --no-warn-script-location"
-  - sh: "pip install -r requirements.txt --no-warn-script-location"
+  - "pip install -r requirements.txt"
 
 build_script:
   - mkdir build
   - cd build
-  - cmd: "pyinstaller --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py"
-  - cmd: "pyinstaller --onefile --distpath ./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py"
-  - sh: "pyinstaller --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py"
-  - sh: "pyinstaller --onefile --distpath ./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py"
+  - "pyinstaller --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py"
+  - "pyinstaller --onefile --distpath ./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py"
 
 test_script:
   - cd GitG/dist
   - cmd: "xcopy ..\\..\\..\\src\\* .\\src /e /i"
+  - sh: "mkdir src"
   - sh: "cp ../../../src/* ./src"
   - cmd: "GitG.exe --version"
   - sh: "./GitG --version"
