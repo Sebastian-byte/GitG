@@ -18,10 +18,9 @@ script:
   - mkdir build 
   - cd build
   - pyinstaller ../GitG.py
-  - ls
   - cd dist
-  - ls
   - cd GitG
-  - GitG --version
+  - ls
+  - GitG.elf --version
 after_success:
   - codecov
