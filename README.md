@@ -3,6 +3,7 @@
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/sebastian-byte/gitg.svg">
 <img alt="GitHub" src="https://img.shields.io/github/license/sebastian-byte/gitg.svg">
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/sebastian-byte/gitg.svg">
+<img alt="Build Status" src="https://ci.appveyor.com/api/projects/status/2p9wf48j1lllokh1?svg=true">
 <img alt="Build Status" src="https://travis-ci.com/Sebastian-byte/GitG.svg">
 <img alt="Made with Python 3" src="https://img.shields.io/badge/Made%20with-Python%203-green.svg">
 
