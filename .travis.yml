@@ -1,4 +1,4 @@
-sudo: false
+root: false
 os:
   - linux
 dist: 
@@ -21,6 +21,6 @@ script:
   - cd dist
   - cd GitG
   - ls
-  - GitG.elf --version
+  - ./GitG --version
 after_success:
   - codecov
