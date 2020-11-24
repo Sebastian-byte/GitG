@@ -49,7 +49,8 @@ test_script:
   - sh: "./GitG --version"
   - cd ../../GitGSave/dist
   - cmd: "xcopy ..\\..\\..\\src\\* .\\src /e /i"
-  - sh: "cp ../../../src/* ./src"
+  - sh: "mkdir src"
+  - sh: "cp -rv ../../../src/* ./src"
   - cmd: "GitGSave.exe --version"
   - sh: "./GitGSave --version"
   - cd ../../..
