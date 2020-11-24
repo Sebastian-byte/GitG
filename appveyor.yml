@@ -26,14 +26,18 @@ init:
   - cmd: "echo Python-Path: %PYTHON% Python-Version: %PYTHON_VERSION% Python-Arch: x%PYTHON_ARCH%"
 
 install:
+  - cmd: "SET PATH=%PYTHON%;%path%"
+  - cmd: "SET PATH=%PYTHON%\\Scripts;%path%"
+  - sh: "export PATH=$PATH:/%PYTHON%"
+  - sh: "export PATH=$PATH:/%PYTHON%/Scripts"
   - cmd: "pip install -r requirements.txt --no-warn-script-location"
   - sh: "pip install -r requirements.txt --no-warn-script-location"
 
 build_script:
   - mkdir build
   - cd build
-  - cmd: "%PYTHON%\\Scripts\\pyinstaller.exe --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py"
-  - cmd: "%PYTHON%\\Scripts\\pyinstaller.exe --onefile --distpath ./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py"
+  - cmd: "pyinstaller --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py"
+  - cmd: "pyinstaller --onefile --distpath ./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py"
   - sh: "pyinstaller --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py"
   - sh: "pyinstaller --onefile --distpath ./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py"
 
