@@ -53,3 +53,7 @@ class ColorText():
     def bold(self, arg):
         """ Texto bold """
         return self.__OKBOLD + arg + self.__ENDC
+
+    def warn(self, arg):
+        """ Texto de advertencia """
+        return self.__WARNING + arg + self.__ENDC

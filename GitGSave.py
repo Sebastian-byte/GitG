@@ -15,7 +15,7 @@ if len(sys.argv) >= 2:
     arg = sys.argv[1]
     if arg == '--version':
         print(color.red('\nGitGSave'))
-        print('Version 0.930')
+        print('Version 0.9')
         print('Thanks for testing!')
 else:
     pass
