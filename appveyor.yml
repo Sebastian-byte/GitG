@@ -4,23 +4,21 @@ build:
   parallel: true
   verbosity: minimal
 
+image:
+  - Visual Studio 2019
+  - Ubuntu
+
 environment:
   matrix:
     - PYTHON: "C:\\Python38"
       PYTHON_VERSION: "3.8.6"
       PYTHON_ARCH: "32"
       platform: "x86"
-      image:
-        - Visual Studio 2019
-        - Ubuntu
 
     - PYTHON: "C:\\Python38-x64"
       PYTHON_VERSION: "3.8.6"
       PYTHON_ARCH: "64"
       platform: "x64"
-      image:
-        - Visual Studio 2019
-        - Ubuntu
 
 init:
   - cmd: "ECHO Python-Path: %PYTHON% Python-Version: %PYTHON_VERSION% Python-Arch: x%PYTHON_ARCH%"
