@@ -14,12 +14,12 @@ init:
 
 install:
   - "set PATH=%PATH%;%PYTHON%\\Scripts"
-  - "python -m pip install -r requirements.txt"
+  - "pip install -r requirements.txt"
 
 build_script:
   - mkdir build
   - cd build
-  - "python -m pyinstaller ../GitG.py"
+  - "pyinstaller ../GitG.py"
 
 test_script:
   - cd dist/GitG
