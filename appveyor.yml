@@ -50,7 +50,7 @@ test_script:
 
 artifacts:
 - path: ./build/GitG/dist
-  name: GitG-$(image)-$(platform)
+  name: GitG-$(APPVEYOR_BUILD_WORKER_IMAGE)-$(platform)
 
 - path: ./build/GitGSave/dist
   name: GitGSave-$(APPVEYOR_BUILD_WORKER_IMAGE)-$(platform)
