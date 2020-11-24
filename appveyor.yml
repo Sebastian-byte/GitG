@@ -52,7 +52,7 @@ test_script:
 
 artifacts:
 - path: ./build/GitG/dist
-    name: GitG-$(platform%)
+    name: GitG-$(platform)
 
 - path: ./build/GitGSave/dist
     name: GitGSave-$(platform)
