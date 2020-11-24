@@ -1,4 +1,11 @@
-version: 1.0.{build}
+version: '{build}'
+
+platform:
+  - x86
+  - x64
+build:
+  parallel: true
+  verbosity: minimal
 
 environment:
   matrix:
