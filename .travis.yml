@@ -1,13 +1,24 @@
-os: linux
-dist: focal
-language: python
+sudo: false
+os:
+  - linux
+dist: 
+  - focal
+language: 
+  - python
 python:
+  - "3.6"
   - "3.7"
   - "3.8"
   - "3.9"
-# command to install dependencies
+before_install:
+  - pip install pyinstaller
+  - pip install python-colortext
 install: "pip install -r requirements.txt"
-# command to run tests
-script: nosetests
+script:
+  - mkdir build 
+  - cd build
+  - pyinstaller ../GitG.py
+  - cd dist
+  - GitG --version
 after_success:
-  - codecov # submit coverage
+  - codecov
