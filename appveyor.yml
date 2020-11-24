@@ -39,7 +39,7 @@ test_script:
 
 artifacts:
 - path: ./build/GitG/dist
-  name: GitG
+  name: GitG-Win-$(platform)
 
 - path: ./build/GitGSave/dist
-  name: GitGSave
+  name: GitGSave-Win-$(platform)
