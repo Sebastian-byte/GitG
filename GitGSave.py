@@ -47,20 +47,20 @@ def main_save():
 
     a = 1
     if sys.platform.startswith('win32'):
-        nullvar = 'nul'
+        nullvar = '>nul 2>&1'
     else:
-        nullvar = '/dev/null'
+        nullvar = '&> /dev/null'
 
     for i in progressbar(range(10)):
         if a == 1:
-            os.system(f'git add -A > {nullvar}')
-            os.system(f'git commit -m "{commit_name}" > {nullvar}')
+            os.system(f'git add -A {nullvar}')
+            os.system(f'git commit -m "{commit_name}" {nullvar}')
 
             try:
-                os.system(f'git push > {nullvar}')
+                os.system(f'git push {nullvar}')
             except OSError:
-                os.system(f'git pull > {nullvar}')
-                os.system(f'git push > {nullvar}')
+                os.system(f'git pull {nullvar}')
+                os.system(f'git push {nullvar}')
 
         if a >= 2:
             time.sleep(0.0005)
