@@ -24,7 +24,16 @@ build_script:
 
 test_script:
   - cd GitG/dist
-  - dir
+  - sh: cp ../../../src ./src
   - "GitG.exe --version"
   - cd ../../GitGSave/dist
+  - sh: cp ../../../src ./src
   - "GitGSave.exe --version"
+  - cd ../../..
+
+artifacts:
+- path: ./build/GitG/dist
+  name: GitG
+
+- path: ./build/GitGSave/dist
+  name: GitGSave
