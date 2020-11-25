@@ -68,8 +68,8 @@ deploy:
   auth_token:
     secure: cZPQOqmIIQmwGKBZm6h3h/m85lWjzdtK7Ad8vDtV9x6Dp5GRVeVJL2tn6YwyKRjY
   artifacts: GitG-$(APPVEYOR_BUILD_WORKER_IMAGE)-$(platform), GitGSave-$(APPVEYOR_BUILD_WORKER_IMAGE)-$(platform)
-  draft: false
+  draft: false 
   prerelease: false
   on:
-    branch: main, dev
+    # branch: main # Commit to all branches
     # APPVEYOR_REPO_TAG: true
