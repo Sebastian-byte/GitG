@@ -54,13 +54,11 @@ test_script:
   - sh: "./GitGSave --version"
   - cd ../../..
   - ps: >-
-      if ( $APPVEYOR_REPO_BRANCH -eq "dev" )
+      If ($env:APPVEYOR_REPO_BRANCH -Match "dev")
       {
-      $env:releasetype = "true"
-      }
-      else
-      {
-      $env:releasetype = "false"
+        $env:releasetype="true"
+      } Else {
+        $env:releasetype="false"
       }
 
 artifacts:
@@ -78,4 +76,4 @@ deploy:
     secure: cZPQOqmIIQmwGKBZm6h3h/m85lWjzdtK7Ad8vDtV9x6Dp5GRVeVJL2tn6YwyKRjY
   artifacts: GitG-$(APPVEYOR_BUILD_WORKER_IMAGE)-$(platform), GitGSave-$(APPVEYOR_BUILD_WORKER_IMAGE)-$(platform)
   draft: false 
-  prerelease: $(releasetype)
+  prerelease: %releasetype%
