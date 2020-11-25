@@ -5,11 +5,35 @@ import sys
 import subprocess
 import time
 from pathlib import Path
-from progressbar import progressbar
-from src.console_tools import ColorText
-from src.osclear import clear
-from src.ospause import pause
-from src.login import request_login
+
+try:
+    from src.console_tools import ColorText
+    from src.osclear import clear
+    from src.ospause import pause
+    from src.login import request_login
+except ImportError:
+    print(f'Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos esta completos.')
+    sys.exit(1)
+
+try:
+    from progressbar import progressbar
+except ImportError:
+    print('Instalando Dependencias...')
+    if sys.platform.startswith('win32'):
+        try:
+            os.system('python -m pip install progressbar2')
+            clear()
+        except Exception as error:
+            print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
+            sys.exit(1)
+    else:
+        try:
+            os.system('python3 -m pip install progressbar2')
+            clear()
+        except Exception as error:
+            print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
+            sys.exit(1)
+
 
 HOME = str(Path.home())
 color = ColorText()
@@ -40,7 +64,7 @@ def main_save():
         os.chdir(dir_name)
     # Si no existe, informarle al usuario y llevarlo al inicio
     else:
-        print(color.red('\nEse directorio no existe!, intentalo de nuevo.'))
+        print(color.red('\nEse directorio no existe!, intentalo de nuevo.\n'))
         pause() # Pausar
         clear() # Limpiar
         main_save() # Llamar a la funcion principal
