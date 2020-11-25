@@ -48,6 +48,7 @@ after_success: |
   sudo make install &&
   cd ../.. &&
   rm -rf kcov-master &&
+  cd ../../..
   mkdir -p coverage &&
   kcov coverage GitG.py &&
   bash <(curl -s https://codecov.io/bash)
