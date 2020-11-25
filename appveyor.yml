@@ -70,6 +70,3 @@ deploy:
   artifacts: GitG-$(APPVEYOR_BUILD_WORKER_IMAGE)-$(platform), GitGSave-$(APPVEYOR_BUILD_WORKER_IMAGE)-$(platform)
   draft: false 
   prerelease: false
-  on:
-    # branch: main # Commit to all branches
-    # APPVEYOR_REPO_TAG: true
