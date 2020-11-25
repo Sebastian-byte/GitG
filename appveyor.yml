@@ -54,7 +54,7 @@ test_script:
   - sh: "./GitGSave --version"
   - cd ../../..
   - ps: >-
-      if ( $(APPVEYOR_REPO_BRANCH) -eq "dev" )
+      if ( $APPVEYOR_REPO_BRANCH -eq "dev" )
       {
       $env:releasetype = "true"
       }
