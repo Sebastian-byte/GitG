@@ -13,7 +13,7 @@ python:
 before_install:
   - python -m pip --version
   - python -m pip install --upgrade pip
-install: "pip install -r requirements.txt"
+install: pip install -r requirements.txt
 script:
   - mkdir build
   - cd build
@@ -25,5 +25,3 @@ script:
   - pyinstaller ../GitGSave.py
   - cd dist/GitGSave
   - ./GitGSave --version
-after_success:
-  - codecov
