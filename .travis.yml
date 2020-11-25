@@ -1,4 +1,4 @@
-if: tag NOT present
+if: tag IS NOT present
 os: linux
 dist: focal
 language: python
