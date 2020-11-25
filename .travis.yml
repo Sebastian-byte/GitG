@@ -1,3 +1,5 @@
+sudo: required
+
 os:
   - linux
 dist: 
@@ -9,9 +11,19 @@ python:
   - "3.7"
   - "3.8"
   - "3.9"
+  
+addons:
+  apt:
+    packages:
+      - libcurl4-openssl-dev
+      - libelf-dev
+      - libdw-dev
+      - cmake
+
 before_install:
   - python -m pip --version
   - python -m pip install --upgrade pip
+
 install: "pip install -r requirements.txt"
 script:
   - mkdir build
@@ -24,5 +36,18 @@ script:
   - pyinstaller ../GitGSave.py
   - cd dist/GitGSave
   - ./GitGSave --version
-after_success:
-  - codecov
+
+after_success: |
+  wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz &&
+  tar xzf master.tar.gz &&
+  cd kcov-master &&
+  mkdir build &&
+  cd build &&
+  cmake .. &&
+  make &&
+  sudo make install &&
+  cd ../.. &&
+  rm -rf kcov-master &&
+  mkdir -p coverage &&
+  kcov coverage GitG.py &&
+  bash <(curl -s https://codecov.io/bash)
