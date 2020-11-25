@@ -12,7 +12,7 @@ try:
     from src.ospause import pause
     from src.login import request_login
 except ImportError:
-    print(f'Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos esta completos.')
+    print(f'Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos estan completos.')
     sys.exit(1)
 
 try:
@@ -22,6 +22,7 @@ except ImportError:
     if sys.platform.startswith('win32'):
         try:
             os.system('python -m pip install progressbar2')
+            from progressbar import progressbar
             clear()
         except Exception as error:
             print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
@@ -29,6 +30,7 @@ except ImportError:
     else:
         try:
             os.system('python3 -m pip install progressbar2')
+            from progressbar import progressbar
             clear()
         except Exception as error:
             print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
