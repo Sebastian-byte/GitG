@@ -56,7 +56,7 @@ test_script:
   - sh: "./GitGSave --version" # Same but for GNU/Linux
   - cd ../../..
   - ps: >-
-      If ($env:APPVEYOR_REPO_BRANCH -Match "dev") # Check branch and define if is a prerelease
+      If ($env:APPVEYOR_REPO_BRANCH -Match "dev")
       {
         $env:releasetype="true"
       } Else {
