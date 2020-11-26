@@ -123,10 +123,10 @@ def main():
                 os.system(f'git remote add origin "https://github.com/{username}/{repo}.git" {nullvar}')
 
             try:
-                os.system(f'git push -u origin main {nullvar}')
+                os.system(f'git push -u origin main{nullvar}')
             except OSError:
-                os.system(f'git pull {nullvar}')
-                os.system(f'git push -u origin main {nullvar}')
+                os.system(f'git pull{nullvar}')
+                os.system(f'git push -u origin main{nullvar}')
 
         if loopvar >= 2:
             time.sleep(0.1)

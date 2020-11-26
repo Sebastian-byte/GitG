@@ -83,10 +83,10 @@ def main_save():
             os.system(f'git commit -m "{commit_name}" {nullvar}')
 
             try:
-                os.system(f'git push {nullvar}')
+                os.system(f'git push{nullvar}')
             except OSError:
-                os.system(f'git pull {nullvar}')
-                os.system(f'git push {nullvar}')
+                os.system(f'git pull{nullvar}')
+                os.system(f'git push{nullvar}')
 
         if a >= 2:
             time.sleep(0.1)
