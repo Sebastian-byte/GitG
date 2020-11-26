@@ -15,6 +15,8 @@ except ImportError:
     print('Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos estan completos.')
     sys.exit(1)
 
+color = ColorText()
+
 try:
     from progressbar import progressbar
 except ImportError:
@@ -38,7 +40,6 @@ except ImportError:
 
 
 HOME = str(Path.home())
-color = ColorText()
 
 if len(sys.argv) >= 2:
     arg = sys.argv[1]

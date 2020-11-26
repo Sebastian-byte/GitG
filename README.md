@@ -22,7 +22,7 @@ Descomprimirla y luego ejecutarla.
 Felicitaciones!, Ya haz instalado GitG.
 
 - **GNU/Linux:**
-Descargar una release, elige que contenga Ubuntu y tu arquitectura.
+Descargar una release, elige que contenga Ubuntu y tu arquitectura.  
 Descomprimirla y luego ejecutarla.
 Felicitaciones!, Ya haz instalado GitG.
 

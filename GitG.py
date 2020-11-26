@@ -15,6 +15,8 @@ except ImportError:
     print(f'Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos estan completos.')
     sys.exit(1)
 
+color = ColorText()
+
 try:
     from progressbar import progressbar
     from dotenv import load_dotenv
@@ -28,7 +30,7 @@ except ImportError:
             from dotenv import load_dotenv
             clear()
         except Exception as error:
-            print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
+            print(color.red(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}'))
             sys.exit(1)
     else:
         try:
@@ -38,11 +40,10 @@ except ImportError:
             from dotenv import load_dotenv
             clear()
         except Exception as error:
-            print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
+            print(color.red(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}'))
             sys.exit(1)
 
 HOME = str(Path.home())
-color = ColorText()
 
 if len(sys.argv) >= 2:
     arg = sys.argv[1]
