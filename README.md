@@ -16,8 +16,13 @@ Pues esta herramienta esta aqui para ayudarte!
 - Git (Ultima versión recomendada)
 - Las demas dependencias seran instaladas en la primera ejecución.
 ## Instalacion
-- **Windows y GNU/Linux:**  
+- **Windows:**  
 Descargar una release, elige una que contenga Visual Studio 2019 y tu arquitectura.  
+Descomprimirla y luego ejecutarla.
+Felicitaciones!, Ya haz instalado GitG.
+
+- **GNU/Linux:**
+Descargar una release, elige que contenga Ubuntu y tu arquitectura.
 Descomprimirla y luego ejecutarla.
 Felicitaciones!, Ya haz instalado GitG.
 

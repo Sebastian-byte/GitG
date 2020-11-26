@@ -1,5 +1,5 @@
 version: '{build}'
-skip_tags: true
+skip_tags: true # Avoid loops 
 
 build:
   parallel: true # Compile in parallel

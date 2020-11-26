@@ -29,7 +29,6 @@ except ImportError:
             sys.exit(1)
     else:
         try:
-            B
             os.system('python3 -m pip install progressbar2')
             from progressbar import progressbar
             clear()
