@@ -93,6 +93,8 @@ def main_save():
         a = a + 1
 
     del i
+    del a
+
     print('\nTodo Listo!')
     pause()
     sys.exit(0)

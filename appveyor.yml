@@ -13,11 +13,11 @@ stack: python 3.8 # Use Python 3.8.6
 
 environment:
   matrix:
-    - ARCH: i686
-      PYTHON: "C:\\Python38"
+    - ARCH: i686 # Generate executables to 32 & 64 bit
+      PYTHON: "C:\\Python38" # Define Python directory (Only Windows)
       PYTHON_VERSION: "3.8.6"
-      PYTHON_ARCH: "32"
-      platform: "x86"
+      PYTHON_ARCH: "32" # Define Python arch
+      platform: "x86" # Define friendly arch
 
     - ARCH: amd64
       PYTHON: "C:\\Python38-x64"
@@ -43,20 +43,20 @@ build_script:
 
 test_script:
   - cd GitG/dist
-  - cmd: "xcopy ..\\..\\..\\src\\* .\\src /e /i" # Copy depencies
+  - cmd: "xcopy ..\\..\\..\\src\\* .\\src /e /i" # Copy dependencies
   - sh: mkdir src
   - sh: "cp -rv ../../../src/* ./src"
-  - cmd: "GitG.exe --version"
-  - sh: "./GitG --version"
+  - cmd: "GitG.exe --version" # Check if is properly builded
+  - sh: "./GitG --version" # Same but for GNU/Linux
   - cd ../../GitGSave/dist
   - cmd: "xcopy ..\\..\\..\\src\\* .\\src /e /i"
   - sh: mkdir src
   - sh: "cp -rv ../../../src/* ./src"
-  - cmd: "GitGSave.exe --version"
-  - sh: "./GitGSave --version"
+  - cmd: "GitGSave.exe --version" # Check if Save variant is properly builded
+  - sh: "./GitGSave --version" # Same but for GNU/Linux
   - cd ../../..
   - ps: >-
-      If ($env:APPVEYOR_REPO_BRANCH -Match "dev")
+      If ($env:APPVEYOR_REPO_BRANCH -Match "dev") # Check branch and define if is a prerelease
       {
         $env:releasetype="true"
       } Else {
@@ -77,5 +77,5 @@ deploy:
   auth_token:
     secure: cZPQOqmIIQmwGKBZm6h3h/m85lWjzdtK7Ad8vDtV9x6Dp5GRVeVJL2tn6YwyKRjY
   artifacts: GitG-$(APPVEYOR_BUILD_WORKER_IMAGE)-$(platform), GitGSave-$(APPVEYOR_BUILD_WORKER_IMAGE)-$(platform)
-  draft: false 
+  draft: false
   prerelease: $(releasetype)

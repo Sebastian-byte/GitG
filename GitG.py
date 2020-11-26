@@ -2,13 +2,44 @@
 
 import os
 import sys
+import time
 import urllib.request
 from pathlib import Path
-from dotenv import load_dotenv
-from src.osclear import clear
-from src.ospause import pause
-from src.console_tools import ColorText
-from src.login import request_login
+
+try:
+    from src.console_tools import ColorText
+    from src.osclear import clear
+    from src.ospause import pause
+    from src.login import request_login
+except ImportError:
+    print(f'Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos estan completos.')
+    sys.exit(1)
+
+try:
+    from progressbar import progressbar
+    from dotenv import load_dotenv
+except ImportError:
+    print('Instalando Dependencias...')
+    if sys.platform.startswith('win32'):
+        try:
+            os.system('python -m pip install progressbar2')
+            os.system('python -m pip install python-dotenv')
+            from progressbar import progressbar
+            from dotenv import load_dotenv
+            clear()
+        except Exception as error:
+            print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
+            sys.exit(1)
+    else:
+        try:
+            os.system('python3 -m pip install progressbar2')
+            os.system('python3 -m pip install python-dotenv')
+            from progressbar import progressbar
+            from dotenv import load_dotenv
+            clear()
+        except Exception as error:
+            print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
+            sys.exit(1)
 
 HOME = str(Path.home())
 color = ColorText()
@@ -71,26 +102,38 @@ def main():
     else:
         pass
 
-    os.system('git init')
-
-    os.system('git add .')
-
-    os.system(f'git commit -m "{commit_name}"')
-
-    os.system('git branch -M main')
-
-
-    if not os.path.exists("./.env"):
-        os.system(f'git remote add origin "https://github.com/{user}/{repo}.git"')
+    loopvar = 1
+    if sys.platform.startswith('win32'):
+        nullvar = '>nul 2>&1'
     else:
-        username = os.getenv("USERNAME")
-        os.system(f'git remote add origin "https://github.com/{username}/{repo}.git"')
+        nullvar = '&> /dev/null'
 
-    try:
-        os.system('git push -u origin main')
-    except OSError:
-        os.system('git pull')
-        os.system('git push -u origin main')
+    for i in progressbar(range(20)):
+        if loopvar == 1:
+            os.system(f'git init {nullvar}')
+            os.system(f'git add . {nullvar}')
+
+            os.system(f'git commit -m "{commit_name}" {nullvar}')
+            os.system(f'git branch -M main {nullvar}')
+
+            if not os.path.exists("./.env"):
+                os.system(f'git remote add origin "https://github.com/{user}/{repo}.git" {nullvar}')
+            else:
+                username = os.getenv("USERNAME")
+                os.system(f'git remote add origin "https://github.com/{username}/{repo}.git" {nullvar}')
+
+            try:
+                os.system(f'git push -u origin main {nullvar}')
+            except OSError:
+                os.system(f'git pull {nullvar}')
+                os.system(f'git push -u origin main {nullvar}')
+
+        if loopvar >= 2:
+            time.sleep(0.1)
+        loopvar = loopvar + 1
+
+    del i
+    del loopvar
 
     print('\nTodo Listo!')
     pause()
