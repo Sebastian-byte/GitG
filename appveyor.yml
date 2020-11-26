@@ -38,7 +38,7 @@ install:
 build_script:
   - mkdir build
   - cd build
-  - "pyinstaller --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py" # Compile GitG and GitGSave
+  - "pyinstaller --onefile --distpath ./GitG/dist --workpath ./GitG/build ../GitG.py" # Compile GitG & GitGSave
   - "pyinstaller --onefile --distpath ./GitGSave/dist --workpath ./GitGSave/build ../GitGSave.py" # Save it to different directories
 
 test_script:

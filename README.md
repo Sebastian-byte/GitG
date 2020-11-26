@@ -12,26 +12,26 @@ Git Graphical (GitG) es una utilidad escrita en Python para facilitar el uso de 
 Aveces quieres guardar tu codigo en GitHub y compartirlo con los demas, pero crees que es muy complicado usar Git?  
 Pues esta herramienta esta aqui para ayudarte!
 ## Requisitos
-- Python 3.X  
+- Python 3.X
 - Git (Ultima versión recomendada)
 - Las demas dependencias seran instaladas en la primera ejecución.
 ## Instalacion
 - **Windows:**  
 Descargar una release, elige una que contenga Visual Studio 2019 y tu arquitectura.  
-Descomprimirla y luego ejecutarla.
+La descomprimes y luego la ejecutas.
 Felicitaciones!, Ya haz instalado GitG.
 
-- **GNU/Linux:**
-Descargar una release, elige que contenga Ubuntu y tu arquitectura.  
-Descomprimirla y luego ejecutarla.
+- **GNU/Linux:**  
+Descargar una release, elige una que contenga Ubuntu y tu arquitectura.  
+La descomprimes y luego la ejecutas.
 Felicitaciones!, Ya haz instalado GitG.
 
 ## Uso
 Una vez ya estas dentro del directorio del programa, puedes ejecutarlo.
 
 - **Linux:**  
-Para ejecutarlo: Abre una terminal y luego ingresa al directorio...  
+Para ejecutarla: Abre una terminal y luego ingresa al directorio...  
 Luego ejecuta `./GitG` o `./GitGSave` en su defecto  
 
 - **Windows:**  
-Para ejecutarlo: Haz doble click en GitG.exe o GitGSave.exe en su defecto
+Para ejecutarla: Haz doble click en GitG.exe o GitGSave.exe en su defecto
