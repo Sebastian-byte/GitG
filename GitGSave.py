@@ -33,7 +33,7 @@ except ImportError:
             from progressbar import progressbar
             clear()
         except Exception as error:
-            print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
+            print(color.red(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}'))
             sys.exit(1)
 
 
@@ -66,19 +66,19 @@ def main_save():
         os.chdir(dir_name)
     # Si no existe, informarle al usuario y llevarlo al inicio
     else:
-        print(color.red('\nEse directorio no existe!, intentalo de nuevo.\n'))
+        print(color.red('\nEse directorio no existe!, intentalo de nuevo.'))
         pause() # Pausar
         clear() # Limpiar
         main_save() # Llamar a la funcion principal
 
-    a = 1
+    loopvar = 1
     if sys.platform.startswith('win32'):
         nullvar = '>nul 2>&1'
     else:
         nullvar = '&> /dev/null'
 
     for i in progressbar(range(20)):
-        if a == 1:
+        if loopvar == 1:
             os.system(f'git add -A {nullvar}')
             os.system(f'git commit -m "{commit_name}" {nullvar}')
 
@@ -88,12 +88,12 @@ def main_save():
                 os.system(f'git pull{nullvar}')
                 os.system(f'git push{nullvar}')
 
-        if a >= 2:
+        if loopvar >= 2:
             time.sleep(0.1)
-        a = a + 1
+    loopvar = loopvar + 1
 
     del i
-    del a
+    del loopvar
 
     print('\nTodo Listo!')
     pause()

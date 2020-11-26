@@ -1,4 +1,3 @@
-codecov
 pyinstaller
 python-colortext
 python-dotenv

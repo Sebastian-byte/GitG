@@ -111,7 +111,7 @@ def main():
     for i in progressbar(range(20)):
         if loopvar == 1:
             os.system(f'git init {nullvar}')
-            os.system(f'git add . {nullvar}')
+            os.system('git add .')
 
             os.system(f'git commit -m "{commit_name}" {nullvar}')
             os.system(f'git branch -M main {nullvar}')
