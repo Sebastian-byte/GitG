@@ -1,11 +1,37 @@
 """Module to request login for Git"""
 
 import os
+import sys
 from getpass import getpass
-from validate_email import validate_email
-from .ospause import pause
-from .osclear import clear
-from .console_tools import ColorText
+
+try:
+    from .ospause import pause
+    from .osclear import clear
+    from .console_tools import ColorText
+except ImportError:
+    print('Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos esten completos.')
+    sys.exit(1)
+
+try:
+    from validate_email import validate_email
+except ImportError:
+    print('Instalando dependencias...')
+    if sys.platform.startswith('win32'):
+        try:
+            os.system('python -m pip install -r requirements.txt')
+            from validate_email import validate_email
+            clear()
+        except Exception as error:
+            print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
+            sys.exit(1)
+    else:
+        try:
+            os.system('python3 -m pip install -r requirements.txt')
+            from validate_email import validate_email
+            clear()
+        except Exception as error:
+            print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
+            sys.exit(1)
 
 
 color = ColorText()
