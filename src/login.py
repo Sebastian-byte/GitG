@@ -52,7 +52,7 @@ def request_login(come):
         email = input(color.blue('Correo: '))
 
         emailcheck = validate_email(email_address=email, check_regex=True, check_mx=True, use_blacklist=True)
-        if emailcheck == True:
+        if emailcheck is True:
             pass
         else:
             print(color.red('Email Invalido!, Porfavor vuelve a intentarlo.'))
@@ -94,7 +94,7 @@ def request_login(come):
 
         # Solo para asegurarse que no se haya equivocado o este mientiendo
         emailcheck = validate_email(email_address=email, check_regex=True, check_mx=True, use_blacklist=True)
-        if emailcheck == True:
+        if emailcheck is True:
             pass
         else:
             print(color.red('Email Invalido!, Porfavor vuelve a intentarlo.'))
