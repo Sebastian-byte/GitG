@@ -2,7 +2,6 @@
 
 import os
 import sys
-import subprocess
 import time
 from pathlib import Path
 
@@ -50,6 +49,7 @@ if len(sys.argv) >= 2:
 else:
     pass
 
+
 def main_save():
     """Main function to do the before mentionated."""
     print('Git Graphical (GitG) (Guardar Cambios)')
@@ -68,9 +68,9 @@ def main_save():
     # Si no existe, informarle al usuario y llevarlo al inicio
     else:
         print(color.red('\nEse directorio no existe!, intentalo de nuevo.'))
-        pause() # Pausar
-        clear() # Limpiar
-        main_save() # Llamar a la funcion principal
+        pause()  # Pausar
+        clear()  # Limpiar
+        main_save()  # Llamar a la funcion principal
 
     loopvar = 1
     if sys.platform.startswith('win32'):

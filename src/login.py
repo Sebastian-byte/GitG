@@ -36,6 +36,7 @@ except ImportError:
 
 color = ColorText()
 
+
 def request_login(come):
     """Request login and go to the main functions."""
 
