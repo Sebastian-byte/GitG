@@ -12,7 +12,6 @@ class ColorText():
     __WARNING = '\033[93m'
     __FAIL = '\033[91m'
     __ENDC = '\033[0m'
-    __text = ""
 
     def red(self, arg):
         """ Texto en color rojo """

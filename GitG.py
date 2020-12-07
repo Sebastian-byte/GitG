@@ -12,7 +12,7 @@ try:
     from src.ospause import pause
     from src.login import request_login
 except ImportError:
-    print(f'Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos estan completos.')
+    print('Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos estan completos.')
     sys.exit(1)
 
 color = ColorText()
@@ -54,6 +54,7 @@ if len(sys.argv) >= 2:
 else:
     pass
 
+
 # Funcion principal
 def main():
     """Main function to do the before mentionated."""
@@ -82,9 +83,9 @@ def main():
     # Si no existe, informarle al usuario y llevarlo al inicio
     else:
         print(color.red('\nEse directorio no existe!, intentalo de nuevo.'))
-        pause() # Pausar
-        clear() # Limpiar
-        main() # Llamar a la funcion principal
+        pause()  # Pausar
+        clear()  # Limpiar
+        main()  # Llamar a la funcion principal
 
     if not sys.platform.startswith("win32"):
         if not os.path.exists("./.env"):
