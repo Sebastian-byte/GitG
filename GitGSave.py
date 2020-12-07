@@ -2,14 +2,44 @@
 
 import os
 import sys
+import subprocess
+import time
 from pathlib import Path
-from src.console_tools import ColorText
-from src.osclear import clear
-from src.ospause import pause
-from src.login import request_login
+
+try:
+    from src.console_tools import ColorText
+    from src.osclear import clear
+    from src.ospause import pause
+    from src.login import request_login
+except ImportError:
+    print('Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos estan completos.')
+    sys.exit(1)
+
+color = ColorText()
+
+try:
+    from progressbar import progressbar
+except ImportError:
+    print('Instalando Dependencias...')
+    if sys.platform.startswith('win32'):
+        try:
+            os.system('python -m pip install progressbar2')
+            from progressbar import progressbar
+            clear()
+        except Exception as error:
+            print(color.red(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}'))
+            sys.exit(1)
+    else:
+        try:
+            os.system('python3 -m pip install progressbar2')
+            from progressbar import progressbar
+            clear()
+        except Exception as error:
+            print(color.red(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}'))
+            sys.exit(1)
+
 
 HOME = str(Path.home())
-color = ColorText()
 
 if len(sys.argv) >= 2:
     arg = sys.argv[1]
@@ -42,15 +72,29 @@ def main_save():
         clear() # Limpiar
         main_save() # Llamar a la funcion principal
 
-    os.system('git add .')
+    loopvar = 1
+    if sys.platform.startswith('win32'):
+        nullvar = '>nul 2>&1'
+    else:
+        nullvar = '&> /dev/null'
 
-    os.system(f'git commit -m "{commit_name}"')
+    for i in progressbar(range(20)):
+        if loopvar == 1:
+            os.system(f'git add -A {nullvar}')
+            os.system(f'git commit -m "{commit_name}" {nullvar}')
 
-    try:
-        os.system('git push origin main')
-    except:
-        os.system('git pull')
-        os.system('git push origin main')
+            try:
+                os.system(f'git push{nullvar}')
+            except OSError:
+                os.system(f'git pull{nullvar}')
+                os.system(f'git push{nullvar}')
+
+        if loopvar >= 2:
+            time.sleep(0.1)
+        loopvar = loopvar + 1
+
+    del i
+    del loopvar
 
     print('\nTodo Listo!')
     pause()
