@@ -91,7 +91,7 @@ def main_save():
 
         if loopvar >= 2:
             time.sleep(0.1)
-        loopvar = loopvar + 1
+        loopvar += 1
 
     del i
     del loopvar
