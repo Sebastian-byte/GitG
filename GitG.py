@@ -44,6 +44,7 @@ except ImportError:
             sys.exit(1)
 
 HOME = str(Path.home())
+load_dotenv()
 
 if len(sys.argv) >= 2:
     arg = sys.argv[1]
