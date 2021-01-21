@@ -26,7 +26,11 @@ environment:
       platform: "x64"
 
 init:
-  - ps: "echo Python-Path: $env:PYTHON Python-Version: $env:PYTHON_VERSION Python-Arch: x$env:PYTHON_ARCH Computer-Arch: $env:platform Appveyor-Arch: $env:ARCH"
+  - ps: >-
+      if ($env:APPVEYOR_BUILD_WORKER_IMAGE -Match "Ubuntu") {
+        $env:PYTHON = "/home/appveyor/venv3.9.1"
+      }
+  - ps: "Write-Host Python-Path: $env:PYTHON Python-Version: $env:PYTHON_VERSION Python-Arch: x$env:PYTHON_ARCH Computer-Arch: $env:platform Appveyor-Arch: $env:ARCH"
 
 install:
   - cmd: "SET PATH=%PYTHON%;%path%" # Add Python to the path
@@ -56,8 +60,7 @@ test_script:
   - sh: "./GitGSave --version" # Same but for GNU/Linux
   - cd ../../..
   - ps: >-
-      if ($env:APPVEYOR_REPO_BRANCH -Match "dev")
-      {
+      if ($env:APPVEYOR_REPO_BRANCH -Match "dev") {
         $env:releasetype="true"
       } else {
         $env:releasetype="false"
