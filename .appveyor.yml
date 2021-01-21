@@ -9,24 +9,24 @@ image:
   - Visual Studio 2019 # Compile for Windows & Ubuntu
   - Ubuntu
 
-stack: python 3.8 # Use Python 3.8.6
+stack: python 3.9 # Use Python 3.9.1
 
 environment:
   matrix:
     - ARCH: i686 # Generate executables to 32 & 64 bit
-      PYTHON: "C:\\Python38" # Define Python directory (Only Windows)
-      PYTHON_VERSION: "3.8.6"
+      PYTHON: "C:\\Python39" # Define Python directory (Only Windows)
+      PYTHON_VERSION: "3.9.1"
       PYTHON_ARCH: "32" # Define Python arch
       platform: "x86" # Define friendly arch
 
     - ARCH: amd64
-      PYTHON: "C:\\Python38-x64"
-      PYTHON_VERSION: "3.8.6"
+      PYTHON: "C:\\Python39-x64"
+      PYTHON_VERSION: "3.9.1"
       PYTHON_ARCH: "64"
       platform: "x64"
 
 init:
-  - cmd: "echo Python-Path: %PYTHON% Python-Version: %PYTHON_VERSION% Python-Arch: x%PYTHON_ARCH% Computer-Arch: %platform% Appveyor-Arch: %ARCH%"
+  - ps: "echo Python-Path: $env:PYTHON Python-Version: $env:PYTHON_VERSION Python-Arch: x$env:PYTHON_ARCH Computer-Arch: $env:platform Appveyor-Arch: $env:ARCH"
 
 install:
   - cmd: "SET PATH=%PYTHON%;%path%" # Add Python to the path
@@ -56,10 +56,10 @@ test_script:
   - sh: "./GitGSave --version" # Same but for GNU/Linux
   - cd ../../..
   - ps: >-
-      If ($env:APPVEYOR_REPO_BRANCH -Match "dev")
+      if ($env:APPVEYOR_REPO_BRANCH -Match "dev")
       {
         $env:releasetype="true"
-      } Else {
+      } else {
         $env:releasetype="false"
       }
 
