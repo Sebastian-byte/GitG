@@ -133,7 +133,8 @@ def main():
 
         if loopvar >= 2:
             time.sleep(0.1)
-        loopvar += 1
+        if not loopvar >= 2:
+            loopvar += 1
 
     del i
     del loopvar
