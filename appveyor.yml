@@ -3,10 +3,9 @@ skip_tags: true # Avoid loops
 
 build:
   parallel: true # Compile in parallel
-  verbosity: minimal # Minimal Verbose, I don't wanna flood the console 
 
 image:
-  - Visual Studio 2019 # Compile for Windows & Ubuntu
+  - Visual Studio 2019 # Compile for Windows & GNU/Linux 
   - Ubuntu
 
 stack: python 3.8 # Use Python 3.8.6
@@ -14,23 +13,22 @@ stack: python 3.8 # Use Python 3.8.6
 environment:
   matrix:
     - ARCH: i686 # Generate executables to 32 & 64 bit
-      PYTHON: "C:\\Python38" # Define Python directory (Only Windows)
-      PYTHON_VERSION: "3.8.6"
+      PYTHON: "C:\\Python39" # Define Python directory (Only Windows)
+      PYTHON_VERSION: "3.9.2"
       PYTHON_ARCH: "32" # Define Python arch
       platform: "x86" # Define friendly arch
 
     - ARCH: amd64
-      PYTHON: "C:\\Python38-x64"
-      PYTHON_VERSION: "3.8.6"
+      PYTHON: "C:\\Python39-x64"
+      PYTHON_VERSION: "3.9.2"
       PYTHON_ARCH: "64"
       platform: "x64"
 
 init:
-  - cmd: "echo Python-Path: %PYTHON% Python-Version: %PYTHON_VERSION% Python-Arch: x%PYTHON_ARCH% Computer-Arch: %platform% Appveyor-Arch: %ARCH%"
+  - ps: "Write-Output Python-Path: $env:PYTHON Python-Version: $env:PYTHON_VERSION Python-Arch: x$env:PYTHON_ARCH Computer-Arch: $env:platform Appveyor-Arch: $env:ARCH"
 
 install:
-  - cmd: "SET PATH=%PYTHON%;%path%" # Add Python to the path
-  - cmd: "SET PATH=%PYTHON%\\Scripts;%path%"
+  - cmd: "SET PATH=%PYTHON%\\Scripts;%PYTHON%;%PATH%" # Add Python to the path
   - sh: "export PATH=$PATH:/%PYTHON%" # If is compiled for Linux
   - sh: "export PATH=$PATH:/%PYTHON%/Scripts"
   - pip install -r requirements.txt # Install Requirements
@@ -43,15 +41,15 @@ build_script:
 
 test_script:
   - cd GitG/dist
-  - cmd: "xcopy ..\\..\\..\\src\\* .\\src /e /i" # Copy dependencies
-  - sh: mkdir src
-  - sh: "cp -rv ../../../src/* ./src"
+    #- cmd: "xcopy ..\\..\\..\\src\\* .\\src /e /i" # Copy dependencies
+    #- sh: mkdir src
+    #- sh: "cp -rv ../../../src/* ./src"
   - cmd: "GitG.exe --version" # Check if is properly builded
   - sh: "./GitG --version" # Same but for GNU/Linux
   - cd ../../GitGSave/dist
-  - cmd: "xcopy ..\\..\\..\\src\\* .\\src /e /i"
-  - sh: mkdir src
-  - sh: "cp -rv ../../../src/* ./src"
+    #- cmd: "xcopy ..\\..\\..\\src\\* .\\src /e /i"
+    #- sh: mkdir src
+    #- sh: "cp -rv ../../../src/* ./src"
   - cmd: "GitGSave.exe --version" # Check if Save variant is properly builded
   - sh: "./GitGSave --version" # Same but for GNU/Linux
   - cd ../../..
