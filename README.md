@@ -1,4 +1,4 @@
-﻿# GitG
+# GitG
 <p align="center">
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/sebastian-byte/gitg.svg">
 <img alt="GitHub" src="https://img.shields.io/github/license/sebastian-byte/gitg.svg">
@@ -17,12 +17,12 @@ Pues esta herramienta esta aqui para ayudarte!
 - Las demas dependencias seran instaladas en la primera ejecución.
 ## Instalacion
 - **Windows:**  
-Descargar una release, elige una que contenga Visual Studio 2019 y tu arquitectura.  
+Descarga una versión, elige una que contenga Visual Studio 2019 y tu arquitectura.  
 La descomprimes y luego la ejecutas.
 Felicitaciones!, Ya haz instalado GitG.
 
 - **GNU/Linux:**  
-Descargar una release, elige una que contenga Ubuntu y tu arquitectura.  
+Descarga una versión, elige una que contenga Ubuntu y tu arquitectura.  
 La descomprimes y luego la ejecutas.
 Felicitaciones!, Ya haz instalado GitG.
 
