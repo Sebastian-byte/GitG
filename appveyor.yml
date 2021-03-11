@@ -8,7 +8,7 @@ image:
   - Visual Studio 2019 # Compile for Windows & GNU/Linux 
   - Ubuntu
 
-stack: python 3.8 # Use Python 3.8.6
+stack: python 3.9 # Use Python 3.9.2
 
 environment:
   matrix:
@@ -25,6 +25,10 @@ environment:
       platform: "x64"
 
 init:
+  - ps: >-
+      if ($env:APPVEYOR_BUILD_WORKER_IMAGE -Match "Ubuntu") {
+        $env:PYTHON = "/home/appveyor/venv3.9.2"
+      }
   - ps: "Write-Output Python-Path: $env:PYTHON Python-Version: $env:PYTHON_VERSION Python-Arch: x$env:PYTHON_ARCH Computer-Arch: $env:platform Appveyor-Arch: $env:ARCH"
 
 install:
