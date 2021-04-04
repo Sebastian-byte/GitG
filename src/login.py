@@ -9,7 +9,7 @@ try:
     from .osclear import clear
     from .console_tools import ColorText
 except ImportError:
-    print('Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos esten completos.')
+    print("Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos esten completos.", file=sys.stderr)
     sys.exit(1)
 
 try:
@@ -22,7 +22,7 @@ except ImportError:
             from validate_email import validate_email
             clear()
         except Exception as error:
-            print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
+            print(f"Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}", file=sys.stderr)
             sys.exit(1)
     else:
         try:
@@ -30,7 +30,7 @@ except ImportError:
             from validate_email import validate_email
             clear()
         except Exception as error:
-            print(f'Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}')
+            print(f"Ha ocurrido un error fatal y no se han instalado las dependencias\nError: {error}", file=sys.stderr)
             sys.exit(1)
 
 
@@ -56,7 +56,7 @@ def request_login(come):
         if emailcheck is True:
             pass
         else:
-            print(color.red('Email Invalido!, Porfavor vuelve a intentarlo.'))
+            print(color.red("Correo Invalido!, Por Favor vuelve a intentarlo."), file=sys.stderr)
             pause()
             clear()
             request_login(come)
@@ -78,7 +78,7 @@ def request_login(come):
             clear()
             main()
         except Exception as error:
-            print(f'Ha ocurrido un error fatal y no se han podido guardar tus credenciales.\nError: {error}')
+            print(f"Ha ocurrido un error fatal y no se han podido guardar tus credenciales.\nError: {error}", file=sys.stderr)
             sys.exit(1)
 
     elif come == 2:
@@ -98,7 +98,7 @@ def request_login(come):
         if emailcheck is True:
             pass
         else:
-            print(color.red('Email Invalido!, Porfavor vuelve a intentarlo.'))
+            print(color.red("Correo Invalido!, Por Favor vuelve a intentarlo."), file=sys.stderr)
             pause()
             clear()
             request_login(come)
@@ -120,5 +120,5 @@ def request_login(come):
             clear()
             main_save()
         except Exception as error:
-            print(f'Ha ocurrido un error fatal y no se han podido guardar tus credenciales.\nError: {error}')
+            print(f"Ha ocurrido un error fatal y no se han podido guardar tus credenciales.\nError: {error}", file=sys.stderr)
             sys.exit(1)

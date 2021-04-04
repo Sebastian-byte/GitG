@@ -1,4 +1,4 @@
-﻿"""Create Git repo, and publish to Github"""
+"""Create Git repo, and publish to Github"""
 
 import os
 import sys
@@ -13,7 +13,7 @@ try:
     from src.ospause import pause
     from src.login import request_login
 except ImportError:
-    print("Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos estan completos.")
+    print("Hacen falta archivos necesarios para la ejecucion, asegurate que todos los archivos estan completos.", file=sys.stderr)
     sys.exit(1)
 
 color = ColorText()
@@ -32,7 +32,7 @@ except ImportError:
             clear()
         except Exception as error:
             print(color.red(f"Ha ocurrido un error fatal y no \
-se han instalado las dependencias\nError: {error}"))
+se han instalado las dependencias\nError: {error}"), file=sys.stderr)
             sys.exit(1)
     else:
         try:
@@ -43,7 +43,7 @@ se han instalado las dependencias\nError: {error}"))
             clear()
         except Exception as error:
             print(color.red(f"Ha ocurrido un error fatal y no \
-se han instalado las dependencias\nError: {error}"))
+se han instalado las dependencias\nError: {error}"), file=sys.stderr)
             sys.exit(1)
 
 HOME = str(Path.home())
@@ -86,7 +86,7 @@ def main():
     # Si no existe, informarle al usuario y llevarlo al inicio
     else:
         print(color.red("\nEse directorio no \
-existe!, intentalo de nuevo."))
+existe!, intentalo de nuevo."), file=sys.stderr)
         pause()  # Pausar
         clear()  # Limpiar
         main()  # Llamar a la funcion principal
@@ -104,7 +104,7 @@ github.com/{username}/{repo}.git").getcode()
             pass
         else:
             print(color.red("Ese repositorio no \
-existe!, intentalo de nuevo."))
+existe!, intentalo de nuevo."), file=sys.stderr)
             pause()
             clear()
             main()
